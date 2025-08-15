@@ -15,3 +15,24 @@ body {
 /* petites aides */
 .section-title { text-align:center; font-weight:700; margin:2rem 0 .5rem; }
 .section-underline { width:120px; height:4px; background:var(--brand); margin:.25rem auto 1.5rem; border-radius:999px; }
+
+/* Hero */
+.badge.bg-primary-subtle {
+  background: #e7f1ff;
+  border: 1px solid #cfe2ff;
+}
+
+/* Boutons : micro-transition */
+.btn { transition: transform .1s ease, box-shadow .1s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+
+/* Progress bar arrondie */
+.progress { height: 10px; border-radius: 999px; }
+.progress-bar { background-color: var(--brand); border-radius: 999px; }
+
+.section-title { text-align: center; font-weight: 700; margin-bottom: .5rem; }
+.section-underline { width: 120px; height: 4px; background: #0d6efd; margin: .25rem auto 2rem; border-radius: 999px; }
+
+.badge.text-bg-light.border { background: #f8f9fa; }
+
+.object-fit-cover { object-fit: cover; }
