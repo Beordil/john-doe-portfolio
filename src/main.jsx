@@ -1,14 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import AppRouter from './router'
+// src/main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// CSS & frameworks
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import './styles/globals.css'
+// Styles Bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// Styles perso
+import "./styles/globals.css"; // à créer juste après
+
+import App from "./App.jsx";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AppRouter />
+    <App />
   </React.StrictMode>
-)
+);
