@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
@@ -10,7 +10,7 @@ import Legal from './pages/Legal'
 export default function AppRouter() {
   return (
     <Router>
-      <Header />
+      <Navbar />
       <main className="py-4">
         <Routes>
           <Route path="/" element={<Home />} />

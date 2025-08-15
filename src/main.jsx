@@ -1,18 +1,18 @@
-// src/main.jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-// Styles Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+// Bootstrap CSS + Icônes + ton CSS global
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import './styles/globals.css'
 
-// Styles perso
-import "./styles/globals.css"; // à créer juste après
+// IMPORTANT : JS de Bootstrap (pour le burger menu)
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
-import App from "./App.jsx";
+import AppRouter from './router'
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <AppRouter />
   </React.StrictMode>
-);
+)
