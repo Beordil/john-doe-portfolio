@@ -1,14 +1,48 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- =============================
+         FAVICON
+         FR : Petite icône affichée dans l’onglet du navigateur.
+         EN : Small icon displayed in the browser tab.
+    ============================== -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- =============================
+         ENCODAGE
+         FR : UTF-8 permet de gérer les caractères spéciaux (accents, etc.).
+         EN : UTF-8 encoding handles special characters (accents, etc.).
+    ============================== -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- =============================
+         RESPONSIVE
+         FR : Permet au site de s’adapter à la taille de l’écran (mobile, tablette, desktop).
+         EN : Makes the site responsive to screen size (mobile, tablet, desktop).
+    ============================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <title>Vite + React</title>
+
+    <!-- =============================
+         TITRE DE LA PAGE
+         FR : S’affiche dans l’onglet du navigateur et dans les résultats Google.
+         EN : Displayed in the browser tab and in Google search results.
+    ============================== -->
+    <title>John Doe</title>
   </head>
+
   <body>
+    <!-- =============================
+         RACINE REACT
+         FR : React va injecter tout ton site dans cette <div>.
+         EN : React will inject your whole site inside this <div>.
+    ============================== -->
     <div id="root"></div>
+
+    <!-- =============================
+         SCRIPT PRINCIPAL
+         FR : On lance le point d’entrée React (src/main.jsx).
+         EN : Start the React entry point (src/main.jsx).
+    ============================== -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

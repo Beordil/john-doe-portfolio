@@ -1,78 +1,115 @@
-import { Link } from "react-router-dom";
+
+import aboutImg from '../assets/john-doe-about.jpg';
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-light py-5 border-bottom">
-        <div className="container">
-          <div className="row align-items-center g-4">
-            <div className="col-lg-7">
-              <h1 className="display-5 fw-bold mb-3">
-                Développeur Front-end <span className="text-primary">React</span>
-              </h1>
-              <p className="lead text-secondary">
-                Je conçois des interfaces rapides, accessibles et élégantes avec
-                React, Vite et Bootstrap.
-              </p>
-              <div className="d-flex gap-3 mt-3">
-                <Link to="/portfolio" className="btn btn-primary btn-lg">
-                  <i className="bi bi-briefcase me-2" />
-                  Voir mes projets
-                </Link>
-                <Link to="/contact" className="btn btn-outline-secondary btn-lg">
-                  <i className="bi bi-chat-dots me-2" />
-                  Me contacter
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-5">
-              <div className="ratio ratio-16x9 rounded shadow-sm bg-white">
-                {/* Image illustrative libre (optionnel) */}
-                <img
-                  src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
-                  alt="Développement front-end"
-                  className="object-fit-cover rounded"
-                />
-              </div>
-            </div>
-          </div>
+      {/* =====================================================
+         FR : Section HERO (bannière principale avec présentation)
+         EN : HERO section (main banner with introduction)
+      ====================================================== */}
+      <section className="hero">
+        <div className="hero-inner">
+          <h1>Bonjour, je suis John Doe</h1>
+          <p className="lead">Développeur web full-stack</p>
+
+          {/* Bouton qui ouvre la modale GitHub */}
+          {/* EN: Button to open GitHub modal */}
+          <button
+            type="button"
+            className="btn btn-light btn-hero"
+            data-bs-toggle="modal"
+            data-bs-target="#githubModal"
+          >
+            En savoir plus
+          </button>
         </div>
       </section>
 
-      {/* A PROPOS */}
-      <section className="py-5">
+      {/* =====================================================
+         FR : Section "À propos" + "Compétences"
+         EN : "About me" + "Skills" section
+      ====================================================== */}
+      <section id="about" className="py-5">
         <div className="container">
-          <h2 className="section-title">À propos</h2>
-          <div className="section-underline"></div>
-          <div className="row g-4 align-items-center">
-            <div className="col-md-7">
-              <p className="mb-2">
-                Passionné par l’UI/UX et la performance web, j’aide les
-                entreprises à livrer des interfaces modernes, accessibles et
-                optimisées.
-              </p>
-              <p className="mb-0">
-                Stack : <strong>React</strong>, <strong>Vite</strong>,{" "}
-                <strong>Bootstrap</strong>, <strong>React Router</strong>.
-              </p>
-            </div>
-            <div className="col-md-5">
-              <ul className="list-group">
-                <li className="list-group-item d-flex justify-content-between">
-                  Performance <span className="badge text-bg-primary">A</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between">
-                  Accessibilité <span className="badge text-bg-primary">A</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between">
-                  SEO <span className="badge text-bg-primary">A</span>
-                </li>
-              </ul>
+          <div className="card-shadow p-4 p-md-5">
+            <div className="row g-4">
+
+              {/* ------------------------------------------------
+                 FR : Colonne gauche = photo + description "À propos"
+                 EN : Left column = photo + "About me" description
+              ------------------------------------------------- */}
+              <div className="col-12 col-lg-6">
+                <h5 className="mb-3">A propos</h5>
+                <div className="section-blue-line mb-4"></div>
+
+                <div className="d-flex gap-3 align-items-start mb-3">
+                  <img
+                    src={aboutImg}
+                    alt="John Doe"
+                    className="rounded shadow-sm about-photo"
+                    style={{ width: 300, height: 300, objectFit: "cover" }}
+                  />
+                </div>
+
+                <p className="small text-muted mb-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Optio, necessitatibus consectetur tenetur perferendis nostrum,
+                  ex delectus recusandae impedit aut iure enim placeat?
+                  Natus, neque at?
+                </p>
+                <p className="small text-muted mb-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Optio, necessitatibus consectetur tenetur perferendis
+                  nostrum ex delectus recusandae.
+                </p>
+                <p className="small text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Natus, neque at?
+                </p>
+              </div>
+
+              {/* ------------------------------------------------
+                 FR : Colonne droite = liste des compétences avec barres
+                 EN : Right column = list of skills with progress bars
+              ------------------------------------------------- */}
+              <div className="col-12 col-lg-6">
+                <h5 className="mb-3">Mes compétences</h5>
+                <div className="section-blue-line mb-4"></div>
+
+                <Skill label="HTML5"  value={90} color="danger" />
+                <Skill label="CSS3"   value={80} color="primary" />
+                <Skill label="JAVASCRIPT" value={70} color="warning" textDark />
+                <Skill label="PHP"    value={60} color="success" />
+                <Skill label="REACT"  value={50} color="primary" />
+              </div>
             </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+/* =====================================================
+   FR : Composant réutilisable qui affiche une compétence
+   avec une barre de progression.
+   EN : Reusable component that displays a skill
+   with a progress bar.
+===================================================== */
+function Skill({ label, value, color = "primary", textDark = false }) {
+  return (
+    <div className="mb-3">
+      <div className="d-flex justify-content-between small mb-1">
+        <span className="fw-semibold">{label}</span>
+        <span className="text-muted">{value}%</span>
+      </div>
+      <div className="progress" role="progressbar" aria-valuenow={value} aria-valuemin="0" aria-valuemax="100">
+        <div
+          className={`progress-bar bg-${color} ${textDark ? "text-dark" : ""}`}
+          style={{ width: `${value}%` }}
+        />
+      </div>
+    </div>
   );
 }

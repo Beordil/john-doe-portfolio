@@ -1,109 +1,149 @@
-// src/pages/Legal.jsx
+
 export default function Legal() {
   return (
     <div className="container py-4">
+      {/* =====================================================
+         FR : Titre principal de la page Mentions légales
+         EN : Main title of the Legal Notice page
+      ====================================================== */}
       <h1 className="fw-bold text-center">Mentions légales</h1>
-      <div className="mx-auto" style={{maxWidth: 920}}>
-        <p className="text-muted text-center mb-4">
-          Dernière mise à jour : {new Date().toLocaleDateString()}
-        </p>
 
+      {/* Conteneur centralisé avec largeur max */}
+      {/* EN: Centered container with max width */}
+      <div className="mx-auto" style={{ maxWidth: 920 }}>
+        <div className="section-line section-line--center section-line--xl mb-4" />
+
+        {/* =====================================================
+           FR : Accordéon contenant les différentes sections légales
+           EN : Accordion containing the different legal sections
+        ====================================================== */}
         <div className="accordion" id="legalAccordion">
-          {/* Éditeur du site */}
+
+          {/* -----------------------------------------------------
+             FR : Section 1 - Éditeur du site
+             EN : Section 1 - Website Publisher
+          ------------------------------------------------------ */}
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
-              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                1. Éditeur du site
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+              >
+                Éditeur du site
               </button>
             </h2>
-            <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#legalAccordion">
+            <div
+              id="collapseOne"
+              className="accordion-collapse collapse show"
+              data-bs-parent="#legalAccordion"
+            >
               <div className="accordion-body">
-                <p><strong>Nom :</strong> John Doe</p>
-                <p><strong>Adresse :</strong> 123 Rue Exemple, 75000 Paris</p>
-                <p><strong>Email :</strong> contact@johndoe.dev</p>
-                <p><strong>Téléphone :</strong> +33 6 12 34 56 78</p>
-                <p><strong>Statut :</strong> Entrepreneur individuel (à adapter)</p>
-                <p><strong>SIREN/SIRET :</strong> 000 000 000 00000 (à adapter)</p>
+                <p><strong>John Doe</strong></p>
+                <p>
+                  <i className="bi bi-geo-alt me-2"></i>
+                  40 rue Laure Diebold, 69009 Lyon, France
+                </p>
+                <p>
+                  <i className="bi bi-telephone me-2"></i>
+                  10 20 30 40 50
+                </p>
+                <p>
+                  <i className="bi bi-envelope me-2"></i>
+                  john.doe@gmail.com
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Hébergeur */}
+          {/* -----------------------------------------------------
+             FR : Section 2 - Hébergeur
+             EN : Section 2 - Hosting provider
+          ------------------------------------------------------ */}
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                2. Hébergeur
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+              >
+                Hébergeur
               </button>
             </h2>
-            <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#legalAccordion">
+            <div
+              id="collapseTwo"
+              className="accordion-collapse collapse"
+              data-bs-parent="#legalAccordion"
+            >
               <div className="accordion-body">
-                <p><strong>Nom :</strong> GitHub, Inc. (GitHub Pages)</p>
-                <p><strong>Adresse :</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
-                <p><strong>Site :</strong> https://pages.github.com/</p>
+                <p><strong>alwaysdata</strong></p>
+                <p>91 Rue du Faubourg Saint-Honoré, 75008 Paris</p>
+                <p>
+                  <i className="bi bi-globe me-2"></i>
+                  <a href="https://www.alwaysdata.com" target="_blank" rel="noreferrer">
+                    www.alwaysdata.com
+                  </a>
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Propriété intellectuelle */}
+          {/* -----------------------------------------------------
+             FR : Section 3 - Crédits
+             EN : Section 3 - Credits
+          ------------------------------------------------------ */}
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                3. Propriété intellectuelle
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+              >
+                Crédits
               </button>
             </h2>
-            <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#legalAccordion">
+            <div
+              id="collapseThree"
+              className="accordion-collapse collapse"
+              data-bs-parent="#legalAccordion"
+            >
               <div className="accordion-body">
-                <p>Le contenu de ce site (textes, images, logos, code) est protégé. Toute reproduction est soumise à autorisation préalable.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Données personnelles */}
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingFour">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                4. Données personnelles (RGPD)
-              </button>
-            </h2>
-            <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#legalAccordion">
-              <div className="accordion-body">
-                <p>Les données envoyées via le formulaire de contact sont utilisées pour répondre à vos demandes. Vous pouvez exercer vos droits (accès, rectification, suppression) à l’adresse : contact@johndoe.dev.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Cookies */}
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingFive">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                5. Cookies
-              </button>
-            </h2>
-            <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#legalAccordion">
-              <div className="accordion-body">
-                <p>Ce site n’utilise pas de cookies de suivi. (Adapter si vous en ajoutez.)</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingSix">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
-                6. Contact
-              </button>
-            </h2>
-            <div id="collapseSix" className="accordion-collapse collapse" data-bs-parent="#legalAccordion">
-              <div className="accordion-body">
-                <p>Pour toute question sur ces mentions : contact@johndoe.dev</p>
+                <p>
+                  Ce site a été réalisé par <strong>John Doe</strong>, étudiant au{" "}
+                  <a
+                    href="https://www.centre-europeen-formation.fr/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Centre Européen de formation
+                  </a>.
+                </p>
+                <p>
+                  <em>
+                    Les images utilisées sur ce site sont libres de droits et ont été
+                    obtenues sur le site{" "}
+                    <a href="https://pixabay.com/fr/" target="_blank" rel="noreferrer">
+                      Pixabay
+                    </a>.
+                  </em>
+                </p>
+                <p>
+                  La favicon de ce site a été fournie par{" "}
+                  <a
+                    href="https://www.flaticon.com/fr/icones-gratuites/john-doe"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    John Doe Icons créés par Freepik - Flaticon
+                  </a>.
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        <p className="mt-4 small text-muted">
-          ⚠️ Exemple générique — à personnaliser selon ta situation (statut, SIRET, etc.).
-        </p>
       </div>
     </div>
   );

@@ -1,18 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
 
-// Bootstrap CSS + Icônes + ton CSS global
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import './styles/globals.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// IMPORTANT : JS de Bootstrap (pour le burger menu)
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+// =============================
+// BOOTSTRAP
+// FR : Importation de Bootstrap (styles CSS + JS pour les composants interactifs).
+// EN : Import Bootstrap (CSS styles + JS for interactive components).
+// =============================
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import AppRouter from './router'
+// FR : Importation des icônes Bootstrap Icons
+// EN : Import Bootstrap Icons
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// =============================
+// STYLES GLOBAUX
+// FR : Importation de tes propres styles (fichier globals.css).
+// EN : Import your custom styles (globals.css file).
+// =============================
+import "./styles/globals.css";
+
+// =============================
+// COMPOSANT PRINCIPAL
+// FR : Importation de App.jsx (le point d'entrée de ton application).
+// EN : Import App.jsx (the entry point of your application).
+// =============================
+import App from "./App.jsx";
+
+// =============================
+// MONTAGE DE L’APPLICATION
+// FR : Création de la racine React (root) et rendu du composant <App />.
+//      StrictMode est activé pour aider à détecter les problèmes.
+// EN : Create the React root and render the <App /> component.
+//      StrictMode is enabled to help detect potential issues.
+// =============================
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AppRouter />
+    <App />
   </React.StrictMode>
-)
+);

@@ -1,38 +1,198 @@
-:root {
-  --brand: #0d6efd;
+:root{
+  --brand: #0d6efd;   /* FR : Couleur principale (bleu Bootstrap) | EN: Main brand color */
+  --ink: #111827;     /* FR : Couleur du texte par défaut | EN: Default text color */
 }
 
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
-
-body {
-  margin: 0;
+/* ===== Reset simple ===== */
+/* FR : Remise à zéro des styles par défaut du navigateur
+   EN : Reset browser default styles */
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  color:var(--ink);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: #111827;
-  background: #fff;
+}
+a{ text-decoration:none }
+
+/* ===== NAVBAR sombre ===== */
+/* FR : Styles pour la barre de navigation foncée
+   EN : Styles for dark navigation bar */
+header{ background:#1f2428; }
+.navbar{ background:#1f2428 !important; }
+.navbar .navbar-brand{ color:#fff; }
+.navbar .nav-link{ color:#d1d5db; text-transform:uppercase; font-size:.9rem; }
+.navbar .nav-link:hover{ color:#fff; }
+.navbar .nav-link.active{ color:#fff; font-weight:600; text-decoration:underline; }
+
+/* ===== Titres / petites décos ===== */
+/* FR : Titres des sections + sous-titres
+   EN : Section titles + subtitles */
+.page-title{
+  font-weight:800; text-align:center; margin:1.75rem 0 .25rem;
+  color:#fff; /* utile dans les heros sombres; peut être overridé */
+}
+.page-subtitle{
+  text-align:center; font-size:.95rem; opacity:.9; margin-bottom:1rem; color:#fff;
 }
 
-/* petites aides */
-.section-title { text-align:center; font-weight:700; margin:2rem 0 .5rem; }
-.section-underline { width:120px; height:4px; background:var(--brand); margin:.25rem auto 1.5rem; border-radius:999px; }
+/* ===== Barre bleue ===== */
+/* FR : Petites barres décoratives sous les titres
+   EN : Decorative blue lines under section titles */
+.section-line{ height:4px; background:var(--brand); border-radius:999px; }
+.section-line--center{ margin-left:auto; margin-right:auto; }
+.section-line--xl{ width:320px; margin:.5rem auto; }
+.section-line--wide{ width:100%; height:3px; margin:.25rem 0 1rem; }
 
-/* Hero */
-.badge.bg-primary-subtle {
-  background: #e7f1ff;
-  border: 1px solid #cfe2ff;
+/* ===== Anti-gap : bannière collée au header ===== */
+/* FR : Supprime l’espace blanc entre header et bannière
+   EN : Removes white gap between header and banner */
+.hero,
+.section-hero,
+.section-banner{
+  margin-top:0;
+  border-top:0;
 }
 
-/* Boutons : micro-transition */
-.btn { transition: transform .1s ease, box-shadow .1s ease; }
-.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+/* ===== HERO (Home) ===== */
+/* FR : Grande section de présentation (page d'accueil)
+   EN : Hero section (homepage) */
+.hero{
+  position:relative; min-height:460px; display:grid; place-items:center;
+  color:#fff; text-align:center; overflow:hidden;
+}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:url('/src/assets/hero-bg.jpg') center/cover no-repeat;
+  filter:saturate(105%);
+}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,.35));
+}
+.hero > .hero-inner{ position:relative; z-index:1; padding: 2rem 1rem; }
+.hero h1{ font-size: clamp(2rem, 4vw, 3rem); font-weight:800; margin:0 0 .25rem; }
+.hero p.lead{ font-size: clamp(1rem, 2.2vw, 1.5rem); margin:0 0 1rem; }
+.hero .btn{ padding:.6rem 1.1rem; }
 
-/* Progress bar arrondie */
-.progress { height: 10px; border-radius: 999px; }
-.progress-bar { background-color: var(--brand); border-radius: 999px; }
+/* ===== HERO (Services/Portfolio bannière simple) ===== */
+/* FR : Bannières simples des autres pages
+   EN : Simple banners for other pages */
+.section-hero,
+.section-banner{
+  min-height:260px;
+  background:#111 center/cover no-repeat;
+  display:grid; place-items:center;
+  text-align:center;
+  padding:48px 0;
+}
 
-.section-title { text-align: center; font-weight: 700; margin-bottom: .5rem; }
-.section-underline { width: 120px; height: 4px; background: #0d6efd; margin: .25rem auto 2rem; border-radius: 999px; }
+/* ===== Cards génériques ===== */
+/* FR : Styles réutilisables pour cartes
+   EN : Generic card styles */
+.card-shadow{
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:.5rem;
+  background:#fff;
+}
 
-.badge.text-bg-light.border { background: #f8f9fa; }
+/* ===== Services : cartes ===== */
+/* FR : Cartes spécifiques pour la section Services
+   EN : Service section cards */
+.feature-card{
+  background:#fff; border-radius:.75rem; border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 10px 20px rgba(0,0,0,.06);
+  padding:28px 24px; text-align:center;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.feature-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 26px rgba(0,0,0,.10);
+}
+.feature-icon{
+  width:72px; height:72px; margin:0 auto 10px; border-radius:999px;
+  display:grid; place-items:center;
+  background:rgba(13,110,253,.08); color:var(--brand); font-size:28px;
+}
+.feature-title{ font-weight:700; margin:.25rem 0 .5rem; }
+.feature-text{ color:#6b7280; font-size:.95rem; }
 
-.object-fit-cover { object-fit: cover; }
+/* ===== Progress bars (home) ===== */
+/* FR : Styles des barres de progression (compétences)
+   EN : Skill progress bars */
+.progress, .progress-bar{ height:12px; border-radius:999px; }
+.progress{ background:#e9ecef; }
+.progress-bar.html{ background:#dc3545 }
+.progress-bar.css{ background:#0d6efd }
+.progress-bar.js{ background:#ffc107; color:#111 }
+.progress-bar.php{ background:#20c997 }
+.progress-bar.react{ background:#0d6efd }
+
+/* ===== Portfolio ===== */
+/* FR : Cartes projets (Portfolio)
+   EN : Project cards (Portfolio) */
+.portfolio-card{
+  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:.5rem;
+  box-shadow:0 10px 20px rgba(0,0,0,.06); overflow:hidden;
+}
+.portfolio-thumb{ display:block; width:100%; height:220px; object-fit:cover; }
+.portfolio-title{ font-weight:700; margin:.5rem 0 .25rem; }
+.portfolio-caption{ color:#6b7280; font-size:.95rem; }
+
+/* ===== Footer sombre ===== */
+/* FR : Pied de page sombre
+   EN : Dark footer */
+.site-footer{ background:#111; color:#fff; margin-top:3rem; }
+.site-footer a{ color:#cbd5e1; }
+.site-footer a:hover{ color:#fff; text-decoration:underline; }
+.site-footer .brand{ font-weight:700; }
+
+/* Utilitaires */
+/* FR : Classes utilitaires rapides
+   EN : Quick utility classes */
+.text-white{ color:#fff !important; }
+.text-center{ text-align:center !important; }
+.mb-2{ margin-bottom:.5rem!important; }
+.py-5{ padding-top:3rem!important; padding-bottom:3rem!important; }
+
+/* ===== Modale GitHub (thème sombre) ===== */
+/* FR : Apparence sombre pour la modale GitHub
+   EN : Dark theme for GitHub modal */
+.modal-dark{ background:#111827; color:#e5e7eb; border:1px solid rgba(255,255,255,.08); }
+.modal-dark__header{ background:#0f172a; border-bottom:1px solid rgba(255,255,255,.08); }
+.modal-dark__footer{ background:#0f172a; border-top:1px solid rgba(255,255,255,.08); }
+.btn-close-white{ filter:invert(1) grayscale(100%); opacity:.8; }
+.btn-close-white:hover{ opacity:1; }
+.github-avatar-xl{ width:min(360px,100%); height:auto; aspect-ratio:1/1; object-fit:cover; border-radius:12px; }
+.list-group-dark .list-group-item{ background:transparent; color:#e5e7eb; border-color:rgba(255,255,255,.08); padding:.75rem .25rem; }
+.list-group-dark i{ color:#93c5fd; }
+.modal-dark .btn.btn-outline-light{ border-color:rgba(255,255,255,.6); }
+.modal-dark .btn.btn-outline-light:hover{ background:rgba(255,255,255,.1); }
+
+/* ===== Responsive design ===== */
+/* FR : Ajustements pour mobile et tablette
+   EN : Adjustments for mobile and tablet */
+@media (max-width: 575.98px) {
+  .hero { min-height: 380px; }
+  .section-hero, .section-banner { min-height: 200px; padding: 32px 0; }
+  .feature-card { padding: 22px 18px; }
+  .portfolio-thumb { height: 180px; }
+  .contact-message { min-height: 220px; }
+}
+
+@media (max-width: 767.98px) {
+  .map-iframe { height: 340px; }
+}
+@media (min-width: 768px) {
+  .map-iframe { height: 520px; }
+}
+
+/* Iframe Google Map en pleine largeur */
+/* FR : Carte responsive en largeur max
+   EN : Responsive map iframe */
+.embed-map,
+.map-iframe {
+  width: 100%;
+  border: 0;
+}
